@@ -50,7 +50,8 @@ int main(int argc, char* argv[]) {
         chain.sufijos(archivo_salida);
         break;
       default:
-        break;
+        std::cerr << "Código de operación no válido" << std::endl;
+        return 1;
     }
     archivo_salida << std::endl;
   }
