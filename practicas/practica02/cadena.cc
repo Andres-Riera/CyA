@@ -73,6 +73,9 @@ void Cadena::sufijos(std::ofstream& archivo) {
 }
 
 std::ostream& operator<<(std::ostream& out, const Cadena& a) {
+  if (a.longitud_ == 0) {
+    out << '&';
+  }
   for (int i = 0; i < a.longitud_; i++) {
     out << a.cadena_[i];
   }

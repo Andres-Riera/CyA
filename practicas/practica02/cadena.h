@@ -22,6 +22,7 @@ class Cadena {
   Cadena() = default; // Constructor por defecto
   Cadena(std::string cadena, std::string alphabet); // Constructor a partir de dos strings
   Cadena(std::string cadena, Alfabeto alphabet); // Constructor a partir de una string y un Alfabeto
+  Cadena(std::string alphabet) : alfabeto_(alphabet) {} // Constructor en caso de cadena vacía
   Alfabeto mostrar_alfabeto() {return alfabeto_;} // Devuelve el alfabeto al que pertenece la cadena
   int get_longitud() {return longitud_; } // Devuelve la longitud de la cadena
   Cadena inversa(); // Devuelve la inversa de la cadena
