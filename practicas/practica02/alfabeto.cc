@@ -10,11 +10,13 @@
 // Archivo alfabeto.cc
 // Contiene la definición de la clase Alfabeto
 
+#include <cassert>
 
 #include "alfabeto.h"
 
 Alfabeto::Alfabeto(std::string simbolos) {
   for (int i = 0; i < simbolos.size(); i++) {
+    assert(simbolos[i] != '&');
     simbolos_.insert(simbolos[i]);
   }
 }

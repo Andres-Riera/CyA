@@ -19,18 +19,18 @@ void Usage(int argc, char *argv[]) {
   if (argc == 2) {
     std::string parameter{argv[1]};
     if (parameter == "--help") {
-      std::cout << "El programa recibe como parámetros un archivo de entrada, el nombre del archivo de salida y un código de operación." 
-                << std::endl;
+      std::cout << "El programa recibe como parámetros un archivo de entrada, el nombre del archivo de salida y un código de operación"
+                << "(en caso de ser el código\nde operación 6 deberá tener otro argumento n)." << std::endl;
       std::cout << "El archivo de entrada deberá contener una cadena seguida de su respectivo alfabeto." << std::endl;
       std::cout << "En el archivo de salida se escribirá lo que indique el código de operación." << std::endl;
       std::cout << "Códigos de operación:\n1: Alfabeto de todas las cadenas\n2: Longitud de las cadenas\n3: Inversa de las cadenas\n4: "
-                << "Prefijos de las cadenas\n5: Sufijos de las cadenas" << std::endl;
+                << "Prefijos de las cadenas\n5: Sufijos de las cadenas\n6: Potencia n de las cadenas (debe ser seguido de otro argumento n)" << std::endl;
 
       exit(EXIT_SUCCESS);
     }
   }
 
-  if (argc != 4) {
+  if (argc < 4 || argc > 6) {
     std::cout << "Modo de empleo: " << argv[0] << " filein.txt fileout.txt opcode" << std::endl;
     std::cout << "Pruebe " << argv[0] << " --help para más información" << std::endl;
     exit(EXIT_SUCCESS);

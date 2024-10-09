@@ -14,16 +14,27 @@
 
 Cadena::Cadena(std::string cadena, std::string alphabet) : 
               longitud_(cadena.size()), alfabeto_(alphabet) {
-  for (int i = 0; i < cadena.size(); i++) {
-    cadena_.push_back(cadena[i]);
+  if (cadena != "&") {
+    for (int i = 0; i < cadena.size(); i++) {
+      cadena_.push_back(cadena[i]);
+    }
+  } else {
+    cadena_.resize(0);
+    longitud_ = 0;
   }
 }
 
 Cadena::Cadena(std::string cadena, Alfabeto alphabet) : 
               longitud_(cadena.size()), alfabeto_(alphabet) {
-  for (int i = 0; i < cadena.size(); i++) {
-    cadena_.push_back(cadena[i]);
+  if (cadena != "&") {
+    for (int i = 0; i < cadena.size(); i++) {
+      cadena_.push_back(cadena[i]);
+    }
+  } else {
+    cadena_.resize(0);
+    longitud_ = 0;
   }
+  
 }
 
 Cadena Cadena::inversa() {
@@ -80,4 +91,19 @@ std::ostream& operator<<(std::ostream& out, const Cadena& a) {
     out << a.cadena_[i];
   }
   return out;
+}
+
+// modificación
+
+Cadena Cadena::potencia(int n) {
+  std::string cadena;
+  cadena.resize(longitud_ * n);
+  int aux {0};
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < longitud_; j++) {
+      cadena[aux++] = cadena_[j];
+    }
+  }
+  Cadena potencia(cadena, alfabeto_);
+  return potencia;
 }

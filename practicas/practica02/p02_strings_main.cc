@@ -31,6 +31,7 @@ int main(int argc, char* argv[]) {
   int operacion {std::stoi(argv[3])};
   std::string aux;
   std::string alfabeto;
+  int n {0};
   while (archivo_entrada >> aux >> alfabeto) {
     Cadena chain {aux, alfabeto};
     switch (operacion) {
@@ -48,6 +49,12 @@ int main(int argc, char* argv[]) {
         break;
       case 5:
         chain.sufijos(archivo_salida);
+        break;
+      case 6:
+        if (argc == 5) {
+          n = std::stoi(argv[4]);
+        }  
+        archivo_salida << chain.potencia(n);
         break;
       default:
         std::cerr << "Código de operación no válido" << std::endl;

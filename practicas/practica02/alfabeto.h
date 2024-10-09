@@ -23,6 +23,7 @@ class Alfabeto {
   Alfabeto() = default; // Constructor por defecto
   Alfabeto(std::string simbolos); // Constructor a partir de una string
   friend std::ostream& operator<<(std::ostream& out, const Alfabeto& a); // Sobrecarga del operador de salida de la clase Alfabeto
+  
  private:
   std::set<char> simbolos_;
 };

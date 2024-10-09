@@ -22,13 +22,14 @@ class Cadena {
   Cadena() = default; // Constructor por defecto
   Cadena(std::string cadena, std::string alphabet); // Constructor a partir de dos strings
   Cadena(std::string cadena, Alfabeto alphabet); // Constructor a partir de una string y un Alfabeto
-  Cadena(std::string alphabet) : alfabeto_(alphabet) {} // Constructor en caso de cadena vacía
   Alfabeto mostrar_alfabeto() {return alfabeto_;} // Devuelve el alfabeto al que pertenece la cadena
   int get_longitud() {return longitud_; } // Devuelve la longitud de la cadena
   Cadena inversa(); // Devuelve la inversa de la cadena
   void prefijos(std::ofstream& archivo); // Escribe en el archivo de salida los prefijos de la cadena
   void sufijos(std::ofstream& archivo); // Escribe en el archivo de salida los sufijos de la cadena
   friend std::ostream& operator<<(std::ostream& out, const Cadena& a); // Sobrecarga del operador de salida para la clase Cadena
+  // modificación
+  Cadena potencia(int n); // Realiza la potencia de una cadena 
 
  private:
   std::vector<char> cadena_;
