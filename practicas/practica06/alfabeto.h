@@ -3,10 +3,10 @@
 // Grado en Ingeniería Informática
 // Asignatura: Computabilidad y Algoritmia
 // Curso: 2º
-// Práctica 2: Cadenas y lenguajes
+// Práctica 6: Autómatas finitos
 // Autor: Andrés David Riera Rivera
 // Correo: alu0101618654@ull.edu.es
-// Fecha: 17/09/2024
+// Fecha: 20/10/2024
 // Archivo alfabeto.h
 // Contiene la declaración de la clase Alfabeto
 
@@ -22,7 +22,7 @@ class Alfabeto {
  public:
   Alfabeto() = default;            // Constructor por defecto
   Alfabeto(std::string simbolos);  // Constructor a partir de una string
-  bool is_in(char simbolo);
+  bool is_in(char simbolo); // Devuelve true si el símbolo pertenece al alfabeto
   friend std::ostream& operator<<(
       std::ostream& out, const Alfabeto& a);  // Sobrecarga del operador de salida
 

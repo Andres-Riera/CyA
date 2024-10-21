@@ -3,10 +3,10 @@
 // Grado en Ingeniería Informática
 // Asignatura: Computabilidad y Algoritmia
 // Curso: 2º
-// Práctica 2: Cadenas y lenguajes
+// Práctica 6: Autómatas finitos
 // Autor: Andrés David Riera Rivera
 // Correo: alu0101618654@ull.edu.es
-// Fecha: 17/09/2024
+// Fecha: 20/10/2024
 // Archivo cadena.cc
 // Contiene la definición de la clase Cadena
 
@@ -16,7 +16,10 @@ Cadena::Cadena(std::string cadena, Alfabeto alphabet) :
               longitud_(cadena.size()), alfabeto_(alphabet) {
   if (cadena != "&") {
     for (int i = 0; i < cadena.size(); i++) {
-      assert(alphabet.is_in(cadena[i]));
+      if(!alphabet.is_in(cadena[i])) {
+        std::cerr << "Error símbolo de la cadena no perteneciente al alfabeto" << std::endl;
+        exit(EXIT_SUCCESS);
+      }
       cadena_.push_back(cadena[i]);
     }
   } else {
