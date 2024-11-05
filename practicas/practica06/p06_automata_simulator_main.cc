@@ -39,6 +39,8 @@ int main(int argc, char* argv[]) {
   }
   Automata automata_obj(alphabet, n_estados, arranque, info_estados);
 
+  automata_obj.estados_alcanzables();
+
   std::ifstream cadenas{argv[2]};
   if (!cadenas) {
     std::cerr << "Error al abrir el archivo de cadenas.\n";

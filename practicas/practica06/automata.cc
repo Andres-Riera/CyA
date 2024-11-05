@@ -86,3 +86,23 @@ std::vector<int> Automata::transicion_(std::vector<int> est_act, char simbol) {
   }
   return estado_siguiente;
 }
+
+void Automata::estados_alcanzables() {
+  std::vector<int> alcanzados;
+  alcanzados.push_back(estado_arranque_);
+  for (int i = 0; i < alcanzados.size(); i++) {
+    for (int j = 0; j < estados_[alcanzados[i]].transiciones.size(); j++) {
+
+      
+      if (std::find(alcanzados.begin(), alcanzados.end(), 
+                      estados_[alcanzados[i]].transiciones[j].sig_estado) == alcanzados.end()) {
+          alcanzados.push_back(estados_[alcanzados[i]].transiciones[j].sig_estado);
+        }
+    }
+  }
+  std::cout << "\nEstados alcanzados: ";
+  for (int i = 0; i < alcanzados.size(); i++) {
+    std::cout << alcanzados[i] << " ";
+  }
+  std::cout << std::endl;
+}

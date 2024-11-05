@@ -34,6 +34,7 @@ class Automata {
            std::vector<std::string> info_estados);  // Constructor de la clase
   bool cadena_pertenece(Cadena string);  // Devuelve true si la Cadena es
                                          // reconocida por el automata
+  void estados_alcanzables();
  private:
   Alfabeto alfabeto_;
   std::vector<Estado> estados_;
