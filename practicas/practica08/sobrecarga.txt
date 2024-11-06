@@ -1,0 +1,37 @@
+std::ostream& operator<<(std::ostream& out, const Gramatica& gramatica) {
+  out << "Terminales {";
+  for (auto i = gramatica.terminales_.begin(); i != gramatica.terminales_.end();
+       i++) { 
+    out << *i; 
+    if (std::next(i) != gramatica.terminales_.end()) { 
+      out << ",";
+    }
+  }
+  out << "}\n";
+  out << "No terminales {";
+  for (auto i = gramatica.no_terminales_.begin(); 
+       i != gramatica.no_terminales_.end(); i++) { 
+    out << *i; 
+    if (std::next(i) != gramatica.no_terminales_.end()) {
+       out << ", ";
+    }
+  }
+  out << "}\nProducciones (" << gramatica.producciones_.size() << "): \n";
+  bool first {1};
+  char previo;
+  for (Produccion i : gramatica.producciones_) {
+    if (first) {
+      out << i.no_terminal_ << " -> " << i.regla_;
+      previo = i.no_terminal_;
+      first = 0;
+    } else {
+      if (i.no_terminal_ == previo) {
+        out << " | " << i.regla_;
+      } else {
+        out << "\n" << i.no_terminal_ << " -> " << i.regla_;
+        previo = i.no_terminal_;
+      }
+    }
+  }
+  return out;
+}

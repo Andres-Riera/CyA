@@ -3,10 +3,10 @@
 // Grado en Ingeniería Informática
 // Asignatura: Computabilidad y Algoritmia
 // Curso: 2º
-// Práctica 6: Autómatas finitos
+// Práctica 8: Gramáticas en Forma Normal de Chomsky
 // Autor: Andrés David Riera Rivera
 // Correo: alu0101618654@ull.edu.es
-// Fecha: 20/10/2024
+// Fecha: 04/11/2024
 // Archivo tools.h
 // Contiene la función Usage
 
@@ -20,19 +20,19 @@ void Usage(int argc, char *argv[]) {
   if (argc == 2) {
     std::string parameter{argv[1]};
     if (parameter == "--help") {
-      std::cout << "El programa recibe como parámetros un archivo .fa de "
-                   "entrada que contiene la información de un autómata finito\n"
-                   "y un archivo .txt que contiene las cadenas a ser "
-                   "analizadas por el autómata dado e imprime si estas cadenas\n"
-                << "son aceptadas o rechazadas" << std::endl;
+      std::cerr
+          << "El programa recibe como parámetros un archivo .gra de "
+             "entrada que contiene la información de una gramática\n"
+             "y un archivo .gra de salida en el que se imprimirá "
+             "la gramática en forma normal de Chomsky" << std::endl;
       exit(EXIT_SUCCESS);
     }
   }
 
   if (argc != 3) {
-    std::cout << "Modo de empleo: " << argv[0] << " input.fa input.txt"
+    std::cerr << "Modo de empleo: " << argv[0] << " input.gra output.gra"
               << std::endl;
-    std::cout << "Pruebe " << argv[0] << " --help para más información"
+    std::cerr << "Pruebe " << argv[0] << " --help para más información"
               << std::endl;
     exit(EXIT_SUCCESS);
   }
