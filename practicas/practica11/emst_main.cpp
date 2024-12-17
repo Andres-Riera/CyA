@@ -19,7 +19,7 @@ int main(int argc, char* argv[]) {
   resultado.EMST();
   resultado.write_tree(std::cout);
   if (dot) {
-    std::ofstream dot_file("output.dot");
+    std::ofstream dot_file("output_mod.dot");
     resultado.write(dot_file);
   }
   return 0;

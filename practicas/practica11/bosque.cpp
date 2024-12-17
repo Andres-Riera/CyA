@@ -40,7 +40,7 @@ void point_set::compute_arc_vector(CyA::arc_vector &av) const {
     for (int j = i + 1; j < n; ++j) {
       const CyA::point &p_j = (*this)[j];
 
-      const double dist = euclidean_distance(std::make_pair(p_i, p_j));
+      const double dist = -1 * euclidean_distance(std::make_pair(p_i, p_j)); // -1 -> mod
 
       av.push_back(std::make_pair(dist, std::make_pair(p_i, p_j)));
     }
